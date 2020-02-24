@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modal</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 2rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+    <script src="modal.js"></script>
+</head>
+<body>
+    <custom-modal>
+        <h1 slot="title">Please Confirm</h1>
+        <p>Hello there</p>
+    </custom-modal>
+    <h3>Please confirm your choice.</h3>
+    <button>Show details & Confirm</button>
+
+    <script>
+        const confirmBtn = document.querySelector('button')
+        const modal = document.querySelector('custom-modal')
+
+        modal.addEventListener('confirm', () => {
+            console.log('Confirmed')
+        })
+
+        modal.addEventListener('cancel', () => {
+            
+        })
+
+        confirmBtn.addEventListener('click', () => {
+            if (!modal.isOpen) {
+                modal.open()
+                console.log('open')
+            }
+            
+        })
+    </script>
+</body>
+</html>
